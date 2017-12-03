@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   require 'net/http'
 
   def index
-    debugger
+    # debugger
     uri_one = URI('http://localhost:3030/time/get_time')
     res = Net::HTTP.get_response(uri_one)
     time = JSON.parse(res.body)
@@ -25,8 +25,10 @@ class HomeController < ApplicationController
     puts time_new
 
     uri_one_set = URI('http://localhost:3030/time/set_time')
+    uri_two_set = URI('http://localhost:3040/time/set_time')
     params_one = { time: time_new }
     res = Net::HTTP.post_form(uri_one_set, params_one)
+    res = Net::HTTP.post_form(uri_two_set, params_one)
     puts res
   end
 end
