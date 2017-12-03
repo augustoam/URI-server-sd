@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: amendoim
+  pool: 8
+  host: localhost
+
+development:
+  <<: *default
+  database: time_web
+
+test:
+  <<: *default
+  database: time_web_test
+
+production:
+  <<: *default
+  database: time_web_production
