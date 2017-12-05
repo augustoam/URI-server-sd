@@ -1,10 +1,5 @@
 body{
-  max-width: 960px;
   background: #17202A;
-  margin: auto;
-  padding: 2% 1%;
-  text-align: center;
-  font-family: 'Bungee', cursive;
   color: #fff;
 }
 h1{
