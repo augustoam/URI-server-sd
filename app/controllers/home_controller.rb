@@ -2,7 +2,6 @@ class HomeController < ApplicationController
   include MqttBroker
 
   def index
-    # Busca os últimos registros gravados em banco, do cliente one e two
     time_one = Timer.where(cliente: 'one').last
     time_two = Timer.where(cliente: 'two').last
 
