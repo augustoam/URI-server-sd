@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :timer do
+  resources :time  do
     post :atualiza_time, on: :collection
+    get :get_time, on: :collection
   end
 
   require 'sidekiq/web'

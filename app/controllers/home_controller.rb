@@ -15,7 +15,10 @@ class HomeController < ApplicationController
     new_time = Time.at(media).utc.strftime('%H:%M:%S')
     puts new_time
 
+    Timer.create!(cliente: 'server', time: new_time)
+
     # Publica no topico o novo time
     publish_mqtt('uri/sistemas-distribuidos/new-time', new_time)
   end
+
 end
