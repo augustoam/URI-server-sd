@@ -1,8 +1,6 @@
 $(document).on('turbolinks:load', function() {
   title.innerHTML = "Timer client one";
 
-  // setInterval('publish_time_mqtt()', 5000);
-
   $.get({
     url: "time/get_time"
   }).done(function(data) {
@@ -23,31 +21,16 @@ $(document).on('turbolinks:load', function() {
 
 })
 
-function incrementaSegundo(seconds){
-    interval = setInterval(increment, 1000);
+function incrementaSegundo(seconds) {
+  interval = setInterval(increment, 1000);
 
-    function increment(){
-      seconds = parseInt(seconds) +1;
-      console.log(seconds);
+  function increment() {
+    seconds = parseInt(seconds) + 1;
+    console.log(seconds);
 
-      var date = new Date(1970,0,1);
-      date.setSeconds(seconds);
-      var result = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-      document.getElementById("time").innerHTML = result;
-    }
+    var date = new Date(1970, 0, 1);
+    date.setSeconds(seconds);
+    var result = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    document.getElementById("time").innerHTML = result;
   }
-function publish_time_mqtt() {
-
-  var thisTime = $('#time').get(0).textContent;
-  console.log(thisTime);
-  var vData = {
-    time: thisTime
-  };
-
-  $.post({
-    data: vData,
-    url: "timer/publish_time_mqtt"
-  }).done(function(data) {
-
-  });
 }

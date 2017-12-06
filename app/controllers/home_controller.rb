@@ -20,5 +20,4 @@ class HomeController < ApplicationController
     # Publica no topico o novo time
     publish_mqtt('uri/sistemas-distribuidos/new-time', new_time)
   end
-
 end
